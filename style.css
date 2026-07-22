@@ -1,0 +1,1862 @@
+/* ===================================
+   RESET
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Fredoka',sans-serif;
+
+    overflow:hidden;
+
+    background-color:#ffe9f2;
+
+    background-image:
+    linear-gradient(90deg,
+    rgba(255,255,255,.45) 50%,
+    transparent 50%),
+
+    linear-gradient(
+    rgba(255,255,255,.45) 50%,
+    transparent 50%);
+
+    background-size:70px 70px;
+
+}
+
+/* ===================================
+   PAGES
+=================================== */
+
+.page{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.5s;
+    min-height:100vh;
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+    padding:40px 20px;
+
+    box-sizing:border-box;
+
+}
+
+.page.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+/* ===================================
+   SCRAPBOOK CARD
+=================================== */
+
+.scrapbook{
+
+    width:min(92%,430px);
+
+    background:linear-gradient(
+    180deg,
+    #fffefb,
+    #fffaf6);
+
+    border-radius:38px;
+
+    padding:95px 35px 40px;
+
+    position:relative;
+
+    text-align:center;
+
+    box-shadow:
+    0 18px 45px rgba(0,0,0,.08),
+    0 8px 20px rgba(255,120,170,.10);
+
+    animation:cardFloat .8s ease;
+
+}
+
+/* ===================================
+   TAPE
+=================================== */
+
+.tape{
+
+    position:absolute;
+
+    width:200px;
+
+    top:-90px;
+
+    left:55%;
+
+    transform:
+    translateX(-60%)
+    rotate(23deg);
+
+    z-index:5;
+
+    pointer-events:none;
+
+    filter:drop-shadow(
+    0 4px 8px rgba(0,0,0,.15));
+
+}
+
+/* ===================================
+   SPECIAL DELIVERY BADGE
+=================================== */
+
+.seal{
+
+    width:150px;
+
+    height:150px;
+
+    margin:25px auto 30px;
+
+    border-radius:50%;
+
+    background:#fff8fb;
+
+    border:3px solid #444;
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:
+    0 8px 18px rgba(255,120,170,.18);
+
+}
+
+.seal::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:8px;
+
+    border-radius:50%;
+
+    border:2px solid #ffc8d8;
+
+}
+
+.seal-top{
+
+    font-size:15px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    color:#ff5f90;
+
+    z-index:2;
+
+}
+
+.seal-icon{
+
+    font-size:18px;
+
+    margin:8px 0;
+
+    z-index:2;
+
+}
+
+.seal-bottom{
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    color:#ff5f90;
+
+    z-index:2;
+
+}
+
+/* ===================================
+   TEXT
+=================================== */
+
+.scrapbook h1{
+
+    font-size:2.35rem;
+
+    color:#222;
+
+    margin-bottom:18px;
+
+}
+
+.scrapbook p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:1.1rem;
+
+}
+
+/* ===================================
+   BUTTON
+=================================== */
+
+.next-btn{
+
+    margin-top:35px;
+
+    padding:16px 45px;
+
+    border:none;
+
+    border-radius:60px;
+
+    background:linear-gradient(
+    135deg,
+    #ff6c9c,
+    #ff4384);
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.next-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(255,90,140,.35);
+
+}
+
+/* ===================================
+   ANIMATION
+=================================== */
+
+@keyframes cardFloat{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(40px)
+        scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media(max-width:480px){
+
+.scrapbook{
+
+padding:90px 22px 35px;
+
+}
+
+.tape{
+
+width:155px;
+
+top:-65px;
+
+}
+
+.seal{
+
+width:130px;
+
+height:130px;
+
+}
+
+.scrapbook h1{
+
+font-size:1.9rem;
+
+}
+
+.scrapbook p{
+
+font-size:1rem;
+
+}
+
+.next-btn{
+
+font-size:18px;
+
+padding:14px 35px;
+
+}
+
+}
+/* ===================================
+        PAGE 2
+=================================== */
+
+.warning-card{
+
+    width:min(92%,420px);
+
+    background:linear-gradient(
+        180deg,
+        #fffefb,
+        #fff9f4
+    );
+
+    border-radius:35px;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.08);
+
+    animation:popCard .8s ease;
+
+}
+
+/* Triangle */
+
+.triangle{
+
+    width:0;
+    height:0;
+
+    border-left:55px solid transparent;
+    border-right:55px solid transparent;
+    border-bottom:100px solid #FFD54F;
+
+    margin:0 auto 25px;
+
+    position:relative;
+
+    animation:wiggle 2.5s infinite ease-in-out;
+
+    filter:drop-shadow(0 8px 15px rgba(0,0,0,.15));
+
+}
+
+.triangle-inner{
+
+    position:absolute;
+
+    top:42px;
+    left:-9px;
+
+    color:#333;
+
+    font-size:48px;
+
+    font-weight:900;
+
+}
+
+.warning-card h2{
+
+    font-size:1.8rem;
+    letter-spacing:5px;
+
+    color:#ff4f84;
+
+    margin-bottom:18px;
+
+}
+
+.warning-card h3{
+
+    font-size:2.2rem;
+    line-height:1.25;
+
+    color:#333;
+
+    
+
+    margin-bottom:18px;
+
+}
+
+.warning-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+}
+
+/* Animations */
+
+@keyframes wiggle{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    25%{
+
+        transform:rotate(-5deg);
+
+    }
+
+    50%{
+
+        transform:rotate(5deg);
+
+    }
+
+    75%{
+
+        transform:rotate(-4deg);
+
+    }
+
+    100%{
+
+        transform:rotate(0deg);
+
+    }
+
+}
+.warning-card{
+    animation: fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(35px)
+        scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0)
+        scale(1);
+
+    }
+
+}
+.warning-card{
+
+    transition:.35s ease;
+
+}
+
+.warning-card:hover{
+
+    transform:translateY(-5px);
+
+}
+/* =====================================
+        PAGE 3
+===================================== */
+
+.envelope-container{
+
+    width:min(92%,700px);
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+/* ---------- Heading ---------- */
+
+.envelope-title{
+
+    font-size:clamp(2rem,4vw,3rem);
+
+    color:#ff4f84;
+
+    margin-bottom:15px;
+
+}
+
+.envelope-subtitle{
+
+    color:#666;
+
+    font-size:1.1rem;
+
+    line-height:1.6;
+
+    margin-bottom:45px;
+
+}
+
+/* ---------- Envelope ---------- */
+
+.envelope-wrapper{
+
+    position:relative;
+
+    width:min(90vw,520px);
+
+    aspect-ratio:1/1;
+
+    margin:auto;
+
+}
+
+/* ---------- Images ---------- */
+
+.open-envelope,
+.closed-envelope{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+
+/* ---------- Letter ---------- */
+
+/* =====================================
+            LETTER
+===================================== */
+
+.letter{
+     position:absolute;
+    left:50%;
+    top:48%;
+    width:68%;
+
+    transform:translate(-50%, 0);
+
+    opacity:0;
+
+
+    transition:all .9s ease;
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    opacity:0;
+
+    z-index:10;
+
+   
+
+}
+.letter.show{
+
+    opacity:1;
+
+    transform:translate(-50%, -60px);
+
+}
+.open-envelope{
+    z-index:3;
+     opacity:0;
+
+    transform:scale(.98);
+}
+
+.closed-envelope{
+    z-index:3;
+
+    opacity:1;
+}
+/* Animation */
+
+.closed-envelope.open{
+
+    opacity:0;
+
+    transform:
+        translateY(8px)
+        scale(.95);
+
+}
+
+.open-envelope.show{
+
+    opacity:1;
+
+    transform:
+        scale(1);
+
+}
+.tag-img{
+    z-index:4;
+}
+
+.seal-img{
+    z-index:5;
+}
+
+/* ---------- Tag ---------- */
+
+.tag-img{
+
+    position:absolute;
+
+    width:40%;
+
+    left:50%;
+
+    top:25%;
+
+    transform:translateX(-50%) rotate(-6deg);
+
+    z-index:3;
+
+}
+
+
+/* =====================================
+        SEAL PULSE
+===================================== */
+
+.seal-img{
+
+    position:absolute;
+
+    width:16%;
+
+    left:50%;
+
+    top:40%;
+
+    transform:translateX(-50%);
+
+    z-index:4;
+
+    cursor:pointer;
+
+    filter:drop-shadow(0 6px 12px rgba(0,0,0,.25));
+
+    animation: sealPulse 2s ease-in-out infinite;
+
+}
+
+/* Pause animation when hovering */
+.seal-img:hover{
+
+    animation-play-state: paused;
+
+}
+
+@keyframes sealPulse{
+
+    0%{
+
+        transform:
+            translateX(-50%)
+            scale(1);
+
+        filter:
+            drop-shadow(0 6px 12px rgba(0,0,0,.25));
+
+    }
+
+    50%{
+
+        transform:
+            translateX(-50%)
+            scale(1.08);
+
+        filter:
+            drop-shadow(0 10px 18px rgba(0,0,0,.35));
+
+    }
+
+    100%{
+
+        transform:
+            translateX(-50%)
+            scale(1);
+
+        filter:
+            drop-shadow(0 6px 12px rgba(0,0,0,.25));
+
+    }
+
+}
+/* =====================================
+        SEAL WIGGLE
+===================================== */
+
+@keyframes sealWiggle{
+
+    0%{
+
+        transform:
+            translateX(-50%)
+            rotate(0deg)
+            scale(1);
+
+    }
+
+    20%{
+
+        transform:
+            translateX(-50%)
+            rotate(-12deg)
+            scale(1.08);
+
+    }
+
+    40%{
+
+        transform:
+            translateX(-50%)
+            rotate(12deg)
+            scale(1.1);
+
+    }
+
+    60%{
+
+        transform:
+            translateX(-50%)
+            rotate(-10deg)
+            scale(1.08);
+
+    }
+
+    80%{
+
+        transform:
+            translateX(-50%)
+            rotate(10deg)
+            scale(1.05);
+
+    }
+
+    100%{
+
+        transform:
+            translateX(-50%)
+            rotate(0deg)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================
+        SEAL POP
+===================================== */
+
+@keyframes sealPop{
+
+    0%{
+
+        transform:
+            translateX(-50%)
+            scale(1);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+            translateX(-50%)
+            scale(1.8);
+
+        opacity:0;
+
+    }
+
+}
+
+.seal-img.break{
+
+    animation:
+
+        sealWiggle .35s ease,
+
+        sealPop .45s ease .35s forwards;
+
+}
+.closed-envelope{
+
+    filter:drop-shadow(0 12px 25px rgba(0,0,0,.18));
+
+}
+.envelope-wrapper{
+
+    animation: floatEnvelope 3.5s ease-in-out infinite;
+
+}
+
+@keyframes floatEnvelope{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+/* =====================================
+        TAG LIFT
+===================================== */
+
+.tag-img{
+
+    transition:transform .8s ease, opacity .8s ease;
+
+    transform-origin:top center;
+
+}
+
+.tag-img.lift{
+
+    transform:
+        translateX(-35%)
+        translateY(-90px)
+        rotate(15deg);
+
+    opacity:0;
+
+}
+.page3-next-btn{
+
+    display:block;
+
+    margin:-25px auto 0; 
+
+    padding:16px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#ff4f84;
+
+    color:#fff;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    pointer-events:none;
+
+    transition:
+        opacity .5s,
+        transform .5s;
+
+}
+
+.page3-next-btn.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    pointer-events:auto;
+
+}
+/* =====================================
+            PAGE 4
+===================================== */
+
+.page4{
+
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    flex-direction:column;
+    padding:50px 20px;
+    overflow-y:auto;
+
+}
+
+/* =====================================
+        MAIN CONTAINER
+===================================== */
+
+.scrapbook-page{
+
+    width:min(1300px,95%);
+    margin:auto;
+    text-align:center;
+
+}
+
+/* =====================================
+            TITLE
+===================================== */
+
+.scrapbook-title{
+
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(3.5rem,6vw,5.5rem);
+    color:#c94d61;
+    margin-bottom:35px;
+
+}
+
+/* =====================================
+        SCRAPBOOK BOARD
+===================================== */
+
+.scrapbook-board{
+
+    position:relative;
+    width:100%;
+    min-height:900px;
+
+}
+
+/* =====================================
+        PHOTO STRIPS
+===================================== */
+
+.photo-strip{
+
+    position:absolute;
+
+    width:210px;
+
+    background:#ffffff;
+
+    padding:18px 12px;
+
+    border-radius:8px;
+
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+
+    z-index:2;
+
+}
+
+.photo-strip img{
+
+    width:100%;
+
+    height:200px;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin-bottom:12px;
+
+    border:6px solid #fff;
+
+    border-radius:4px;
+
+    box-shadow:0 4px 8px rgba(0,0,0,.08);
+
+}
+
+.photo-strip img:last-child{
+
+    margin-bottom:0;
+
+}
+
+/* =====================================
+        MASKING TAPE
+===================================== */
+
+.strip-tape{
+
+    position:absolute;
+
+    top:-15px;
+
+    left:50%;
+
+    transform:translateX(-50%) rotate(-5deg);
+
+    width:90px;
+
+    height:28px;
+
+    background:rgba(248,224,165,.85);
+
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+
+    border-left:1px solid rgba(255,255,255,.5);
+
+    border-right:1px solid rgba(255,255,255,.5);
+
+}
+
+/* =====================================
+        LEFT STRIP
+===================================== */
+
+.left-strip{
+
+    left:40px;
+
+    top:20px;
+
+    transform:rotate(-7deg);
+
+}
+
+/* =====================================
+        RIGHT STRIP
+===================================== */
+
+.right-strip{
+
+    right:40px;
+
+    top:20px;
+
+    transform:rotate(7deg);
+
+}
+
+/* =====================================
+        CENTER NOTE
+===================================== */
+
+.note-card{
+
+    position:absolute;
+
+    left:50%;
+
+    top:120px;
+
+    transform:translateX(-50%);
+
+    width:460px;
+
+    padding:40px;
+
+    background:#fff8e8;
+
+    border-radius:10px;
+
+    border:3px dashed #9ec5ff;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+
+    z-index:3;
+
+}
+
+.note-card p{
+
+    margin:0;
+
+    font-family:'Patrick Hand',cursive;
+
+    font-size:2rem;
+
+    line-height:1.6;
+
+    color:#222;
+
+}
+
+/* =====================================
+            STARS
+===================================== */
+
+.star{
+
+    position:absolute;
+
+    font-size:2.2rem;
+
+    z-index:5;
+
+}
+
+.star1{
+
+    left:330px;
+
+    top:25px;
+
+}
+
+.star2{
+
+    right:330px;
+
+    top:360px;
+
+}
+
+.star3{
+
+    left:560px;
+
+    bottom:120px;
+
+}
+
+/* =====================================
+        BUTTON
+===================================== */
+
+.page4-next-btn{
+
+    margin-top:40px;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:1.2rem;
+
+    font-weight:600;
+
+    color:#444;
+
+    transition:.3s;
+
+}
+
+.page4-next-btn:hover{
+
+    color:#ff4f84;
+
+    transform:translateY(-3px);
+
+}
+
+/* =====================================
+        HOVER EFFECT
+===================================== */
+
+.photo-strip:hover{
+
+    transform:scale(1.03);
+
+    transition:.3s;
+
+}
+
+/* =====================================
+        RESPONSIVE
+===================================== */
+
+@media(max-width:1100px){
+
+    .photo-strip{
+
+        width:170px;
+
+    }
+
+    .photo-strip img{
+
+        height:120px;
+
+    }
+
+    .left-strip{
+
+        left:10px;
+
+    }
+
+    .right-strip{
+
+        right:10px;
+
+    }
+
+    .note-card{
+
+        width:380px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .scrapbook-board{
+
+        min-height:1300px;
+
+    }
+
+    .left-strip{
+
+        position:relative;
+
+        left:auto;
+
+        top:auto;
+
+        transform:none;
+
+        margin:0 auto 30px;
+
+    }
+
+    .right-strip{
+
+        position:relative;
+
+        right:auto;
+
+        top:auto;
+
+        transform:none;
+
+        margin:30px auto;
+
+    }
+
+    .note-card{
+
+        position:relative;
+
+        left:auto;
+
+        top:auto;
+
+        transform:none;
+
+        width:90%;
+
+        margin:30px auto;
+
+    }
+
+    .star{
+
+        display:none;
+
+    }
+
+}
+/* =====================================
+            PAGE 5
+===================================== */
+
+.page5{
+    background:#B92C2C;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+
+    padding:90px 60px 60px;
+}
+
+/* Main Layout */
+
+.birthday-container{
+
+    width:100%;
+    max-width:1550px;
+
+    display:grid;
+
+    grid-template-columns:48% 52%;
+
+    gap:90px;
+
+    align-items:center;
+
+}
+
+/* LEFT */
+
+.birthday-photo{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:200px;   /* Increase to 80 or 100px if you want it lower */
+    padding-top:250px;   
+}
+
+.birthday-photo img{
+
+    width:90%;
+
+    height:130vh;
+
+    min-height:700px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+}
+
+/* RIGHT */
+
+.birthday-text{
+
+    width:60%;
+
+    color:white;
+
+}
+
+.birthday-text h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:4.8rem;
+
+    font-weight:normal;
+
+    margin-bottom:20px;
+
+    color:white;
+
+}
+
+.birthday-text p{
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:1.7rem;
+
+    line-height:1.9;
+
+    color:white;
+
+}
+
+.birthday-text h2{
+
+    margin-top:40px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:3.2rem;
+
+    color:#FFE5E5;
+
+    font-weight:normal;
+
+}
+
+/* Button */
+
+.page5-next-btn{
+
+    margin-top:60px;
+
+    padding:16px 50px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:white;
+
+    color:#B92C2C;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.page5-next-btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* Mobile */
+
+@media(max-width:1000px){
+
+    .birthday-container{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .birthday-photo{
+
+        width:100%;
+
+    }
+
+    .birthday-text{
+
+        width:100%;
+
+    }
+
+    .birthday-photo img{
+
+        height:450px;
+
+    }
+
+    .birthday-text h1{
+
+        font-size:3.5rem;
+
+    }
+
+    .birthday-text p{
+
+        font-size:1.3rem;
+
+    }
+
+}
+/* ================= PAGE 6 ================= */
+
+.page6{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:50px 20px;
+    overflow-y:auto;
+}
+
+.love-container{
+    width:95%;
+    max-width:1400px;
+    text-align:center;
+}
+
+.love-heading{
+    font-size:64px;
+    color:#ff4f84;
+    margin-bottom:10px;
+}
+
+.love-subtitle{
+    font-size:22px;
+    color:#666;
+    margin-bottom:45px;
+}
+
+.love-cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:30px;
+
+}
+
+.love-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    height:240px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 18px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.love-card:hover{
+
+    transform:translateY(-10px) scale(1.04);
+
+}
+
+.love-card span{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+
+.love-card h3{
+
+    color:#ff4f84;
+
+    font-size:32px;
+
+    line-height:1.2;
+
+    padding:0 10px;
+
+}
+
+.page6-next-btn{
+
+    margin-top:45px;
+
+    padding:18px 55px;
+
+    font-size:22px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#ff4f84;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.page6-next-btn:hover{
+
+    transform:scale(1.08);
+
+}
+/* =====================================
+            PAGE 7
+===================================== */
+.page7{
+
+display:flex;
+justify-content:center;
+align-items:flex-start;
+padding:30px;
+overflow-y:auto;
+
+}
+
+.memory-container{
+
+width:100%;
+max-width:1500px;
+text-align:center;
+
+}
+
+.memory-heading{
+
+font-size:3.7rem;
+color:#ff4f84;
+margin-bottom:10px;
+
+}
+
+.memory-subtitle{
+
+color:#666;
+margin-bottom:30px;
+font-size:1.2rem;
+
+}
+
+.photo-collage{
+
+position:relative;
+
+height:900px;
+
+margin:auto;
+
+}
+
+.photo{
+
+position:absolute;
+
+width:220px;
+
+height:270px;
+
+padding:12px;
+
+background:white;
+
+box-shadow:0 18px 35px rgba(0,0,0,.18);
+
+object-fit:cover;
+
+transition:.35s;
+
+}
+
+.photo:hover{
+
+transform:scale(1.15) rotate(0deg);
+
+z-index:999;
+
+}
+.p1{left:2%;top:60px;transform:rotate(-18deg);}
+.p2{left:16%;top:10px;transform:rotate(7deg);}
+.p3{left:31%;top:50px;transform:rotate(-8deg);}
+.p4{left:46%;top:0px;transform:rotate(10deg);}
+.p5{left:61%;top:60px;transform:rotate(-10deg);}
+.p6{left:76%;top:20px;transform:rotate(18deg);}
+
+.p7{left:8%;top:300px;transform:rotate(10deg);}
+.p8{left:25%;top:250px;transform:rotate(-13deg);}
+.p9{left:44%;top:330px;transform:rotate(8deg);}
+.p10{left:63%;top:260px;transform:rotate(-18deg);}
+
+.p11{left:23%;top:560px;transform:rotate(12deg);}
+.p12{left:52%;top:560px;transform:rotate(-9deg);}
+.page7-next-btn{
+
+display:block;
+
+margin:30px auto;
+
+padding:18px 60px;
+
+background:#ff4f84;
+
+color:white;
+
+border:none;
+
+border-radius:50px;
+
+font-size:20px;
+
+cursor:pointer;
+
+}
+/* =====================================
+            PAGE 8
+===================================== */
+
+.page8{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+
+}
+
+.surprise-container{
+
+    width:min(800px,90%);
+
+    text-align:center;
+
+}
+
+.surprise-heading{
+
+    color:#ff4f84;
+
+    font-size:clamp(2rem,4vw,3rem);
+
+    margin-bottom:10px;
+
+}
+
+.surprise-subtitle{
+
+    color:#666;
+
+    margin-bottom:40px;
+
+}
+
+.gift-box{
+
+    font-size:7rem;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.gift-box:hover{
+
+    transform:scale(1.08);
+
+}
+
+.birthday-message{
+
+    margin-top:35px;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition:.7s;
+
+}
+
+.birthday-message.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.birthday-message h2{
+
+    color:#ff4f84;
+
+    margin-bottom:20px;
+
+}
+
+.birthday-message p{
+
+    line-height:2;
+
+    color:#555;
+
+}
+
+.restart-btn{
+
+    margin-top:35px;
+
+    padding:15px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#ff4f84;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+}
